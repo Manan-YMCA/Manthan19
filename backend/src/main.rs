@@ -1,5 +1,6 @@
 use std::io;
 use std::sync::{Arc};
+use std::env;
 
 use actix_web::{middleware, web, App, HttpRequest, HttpResponse, HttpServer};
 use mongodb::{Client, ThreadedClient, ClientInner,db::{ThreadedDatabase,options}};
@@ -27,8 +28,7 @@ fn main() -> io::Result<()> {
         App::new()
             .register_data(db.clone())
             .wrap(middleware::Logger::default())
-            .default_service(fs::Files::new("/", "./../frontend/").index_file("home.html")
-                .default_handler(web::route().to(routes::notFound)))
+            .route("*",web::route().to(routes::notFound))
     })
         .bind("127.0.0.1:8080")?
         .run()
