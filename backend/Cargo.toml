@@ -9,3 +9,5 @@ edition = "2018"
 [dependencies]
 actix-web = "1.0.5"
 actix-files = "0.1.4"
+mongodb = "0.3.11"
+bson = "0.13"
