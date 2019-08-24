@@ -16,21 +16,54 @@ fn index(client: web::Data<Arc<ClientInner>>, req: HttpRequest) -> HttpResponse 
     HttpResponse::Ok().body(format!("Num of requests:"))
 }
 
-fn main() -> io::Result<()> {
-    std::env::set_var("RUST_LOG", "actix_web=info");
-    let cnt=Client::connect("localhost", 27017);
-    let cnt:Arc<ClientInner> =match cnt {
-        Ok(y)=>y,
-        Err(_)=>panic!("Unable connect to serve")
-    };
-    let db = web::Data::new(cnt.clone());
-    HttpServer::new(move || {
-        App::new()
-            .register_data(db.clone())
-            .wrap(middleware::Logger::default())
-            .route("*",web::route().to(routes::notFound))
-    })
-        .bind("127.0.0.1:8080")?
-        .run()
+//fn main(){
+//    use std::process::Command;
+//    use std::env;
+//
+//    fn main() {
+//        let args: Vec<String> = env::args().collect();
+//        println!("{:?}",args);
+//        if args.len() == 2 {
+//            if &args[1] == "start" {
+//                let child = Command::new(&args[0])
+//                    .spawn().expect("Child process failed to start.");
+//                println!("child pid: {}", child.id());
+//                // child.forget() No Child Left Behind
+//            }
+//        } else {
+//            std::env::set_var("RUST_LOG", "actix_web=info");
 
+//        }
+//    }
+//}
+
+use std::process::Command;
+
+fn main() {
+    let args: Vec<String> = env::args().collect();
+    if args.len() == 2 {
+        if &args[1] == "start" {
+            let child = Command::new(&args[0])
+                .spawn().expect("Child process failed to start.");
+            println!("child pid: {}", child.id());
+            // child.forget() No Child Left Behind
+        }
+    } else {
+        let cnt=Client::connect("localhost", 27017);
+        let cnt:Arc<ClientInner> =match cnt {
+            Ok(y)=>y,
+            Err(_)=>panic!("Unable connect to serve")
+        };
+        let db = web::Data::new(cnt.clone());
+        HttpServer::new(move || {
+            App::new()
+                .register_data(db.clone())
+                .wrap(middleware::Logger::default())
+                .default_service(fs::Files::new("/", "./../frontend/")
+                    .index_file("home.html")
+                    .default_handler(web::route().to(routes::notFound)))
+        })
+            .bind("127.0.0.1:8080").unwrap()
+            .run();
+    }
 }
