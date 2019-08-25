@@ -300,6 +300,7 @@ nav ul li a:hover {
 
 .wrapper-5 h1 {
       font-size: 70px;
+      overflow: hidden;
 }
 
 .wrapper-5 h2 {
