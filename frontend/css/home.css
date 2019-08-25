@@ -208,10 +208,10 @@ nav ul li a:hover {
 
 .flex-container > div {
       background-color: white;
-      padding: 30px;
+      padding: 20px;
       margin-left: 600px;
       margin-right: 200px;
-      margin-top: 80px;
+      margin-top: 50px;
       text-align: center;
 }
 
@@ -310,6 +310,12 @@ nav ul li a:hover {
 .dev {
       color: red;
 }
+
+.note:hover {
+      text-decoration: none;
+}
+
+
 
 @media screen and (max-width: 864px) {
       .logo {

@@ -241,6 +241,10 @@ span a:hover {
   margin-bottom: 27px;
 }
 
+.star {
+      color: red;
+}
+
 .label-input100 {
   font-family: Poppins-Regular;
   font-size: 13px;

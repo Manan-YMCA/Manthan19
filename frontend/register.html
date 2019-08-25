@@ -36,79 +36,79 @@
 				</span>
 
 				<div class="wrap-input100 validate-input">
-					<span class="label-input100">First Name</span>
-					<input class="input100" type="text" name="name" placeholder="" required>
+					<span class="label-input100">First Name <span class="star">*</span></span>
+					<input class="input100" type="text" name="first_name" placeholder="" required>
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input">
-					<span class="label-input100">Last Name</span>
-					<input class="input100" type="text" name="name" placeholder="">
+					<span class="label-input100">Last Name <span class="star">*</span></span>
+					<input class="input100" type="text" name="last_name" placeholder="" required>
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input">
-					<span class="label-input100">Roll Number</span>
-					<input class="input100" type="text" name="name" required>
+					<span class="label-input100">Roll Number <span class="star">*</span></span>
+					<input class="input100" type="text" name="roll_number" required>
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input">
-					<span class="label-input100">Branch</span>
-					<input class="input100" type="text" name="name" required>
-					<span class="focus-input100"></span>
-				</div>
-
-				<div class="wrap-input100 validate-input">
-					<span class="label-input100">Year</span>
-					<input class="input100" type="text" name="name" required>
+					<span class="label-input100">Branch <span class="star">*</span></span>
+					<input class="input100" type="text" name="branch" required>
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-					<span class="label-input100">Email</span>
+					<span class="label-input100">Email <span class="star">*</span></span>
 					<input class="input100" type="text" name="email" required>
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input">
-					<span class="label-input100">Phone</span>
-					<input class="input100" type="number" name="name" required>
+					<span class="label-input100">Phone no. <span class="star">*</span></span>
+					<input class="input100" type="number" name="phone" required>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input">
+					<span class="label-input100">Github Profile</span>
+					<input class="input100" type="text" name="name" placeholder="Paste your link to profile">
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input">
 					<span class="label-input100">HackerEarth Profile</span>
-					<input class="input100" type="text" name="name" placeholder="Paste your link to profile">
+					<input class="input100" type="text" name="hacker_earth" placeholder="Paste your link to profile">
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input">
 					<span class="label-input100">CodeChef Profile</span>
-					<input class="input100" type="text" name="name" placeholder="Paste your link to profile">
+					<input class="input100" type="text" name="code_chef" placeholder="Paste your link to profile">
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input">
 					<span class="label-input100">Spoj Profile</span>
-					<input class="input100" type="text" name="name" placeholder="Paste your link to profile">
+					<input class="input100" type="text" name="spoj" placeholder="Paste your link to profile">
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input">
 					<span class="label-input100">Open Source Links</span>
-					<input class="input100" type="text" name="name" placeholder="Paste your link to profile">
+					<input class="input100" type="text" name="os_link" placeholder="Paste your link to profile">
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input">
 					<span class="label-input100">Other Profiles</span>
-					<input class="input100" type="text" name="name" placeholder="Paste your link to profile">
+					<input class="input100" type="text" name="other" placeholder="Paste your link to profile">
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input">
-					<span class="label-input100">Project</span>
+					<span class="label-input100">Projects</span>
 					<textarea class="input100" name="message" placeholder="Tell us about your Projects"></textarea>
 					<span class="focus-input100"></span>
 				</div>
@@ -118,10 +118,30 @@
 
 					<div class="containerOuter">
 					  <div class="container-x">
-					    <input type="radio" class="hidden" id="input1" name="inputs">
+					    <input type="radio" class="hidden" id="input1" name="is_club">
 					    <label class="entry" for="input1"><div class="circle"></div><div class="entry-label">Yes</div></label>
-					    <input type="radio" class="hidden" id="input2" name="inputs">
+					    <input type="radio" class="hidden" id="input2" name="is_club">
 					    <label class="entry" for="input2"><div class="circle"></div><div class="entry-label">No</div></label>
+					    <div class="highlight"></div>
+					    <div class="overlay"></div>
+					  </div>
+					</div>
+
+				<div class="wrap-input100 validate-input">
+					<span class="label-input100">If Yes? Name the other Club</span>
+					<input class="input100" type="text" name="name" placeholder="" required>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input">
+					<span class="label-input100">Are you a Designer?</span>
+
+					<div class="containerOuter">
+					  <div class="container-x">
+					    <input type="radio" class="hidden" id="input6" name="inputs">
+					    <label class="entry" for="input6"><div class="circle"></div><div class="entry-label">Yes</div></label>
+					    <input type="radio" class="hidden" id="input7" name="inputs">
+					    <label class="entry" for="input7"><div class="circle"></div><div class="entry-label">No</div></label>
 					    <div class="highlight"></div>
 					    <div class="overlay"></div>
 					  </div>
@@ -139,7 +159,7 @@
 					    <div class="highlight"></div>
 					    <div class="overlay"></div>
 					  </div>
-					</div>			
+					</div>
 
 				</div>
 
