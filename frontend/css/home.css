@@ -172,7 +172,11 @@ nav ul li a:hover {
 }
 
 .bg-2 {
+<<<<<<< HEAD
+      min-height: 800px;
+=======
       min-height: 600px;
+>>>>>>> e581de9ce15fac872ed4b82548406e079f90aee9
       overflow: hidden;
 }
 
@@ -200,10 +204,26 @@ nav ul li a:hover {
       overflow: hidden;
 }
 
+<<<<<<< HEAD
+
+.flex-container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.flex-container > div {
+      background-color: white;
+      padding: 50px;
+      margin-left: 600px;
+      margin-right: 200px;
+      margin-top: 200px;
+      text-align: center;
+=======
 .wrapper-2 {
       float: right;
       padding-right: 80px;
       padding-top: 40px;
+>>>>>>> e581de9ce15fac872ed4b82548406e079f90aee9
 }
 
 #audition {
@@ -225,8 +245,13 @@ nav ul li a:hover {
 }
 
 .manan-logo {
+<<<<<<< HEAD
+      height: 55px;
+      width: 300px;
+=======
       height: 70px;
       width: 380px;
+>>>>>>> e581de9ce15fac872ed4b82548406e079f90aee9
       overflow: hidden;
 }
 
@@ -275,10 +300,16 @@ nav ul li a:hover {
 
 .contributor {
       border-radius: 50%;
+<<<<<<< HEAD
+      height: 250px;
+      width: 250px;
+      padding-right: 20px;
+=======
       height: 400px;
       width: 400px;
       padding-right: 20px;
       /*display: inline-block;*/
+>>>>>>> e581de9ce15fac872ed4b82548406e079f90aee9
 }
 
 .wrapper-5 {
@@ -294,6 +325,13 @@ nav ul li a:hover {
       font-size: 70px;
 }
 
+<<<<<<< HEAD
+.wrapper-5 h2 {
+      overflow: hidden;
+}
+
+=======
+>>>>>>> e581de9ce15fac872ed4b82548406e079f90aee9
 .dev {
       color: red;
 }
@@ -307,6 +345,19 @@ nav ul li a:hover {
             font-size: 50px;
       }
 
+<<<<<<< HEAD
+      .flex-container > div {
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-top: 50px;
+      }
+
+      .contact-us {
+            font-size: 50px;
+      }
+
+=======
+>>>>>>> e581de9ce15fac872ed4b82548406e079f90aee9
       .nav-wrapper {
             position: fixed;
             top: 0;
