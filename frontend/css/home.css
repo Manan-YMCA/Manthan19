@@ -325,8 +325,12 @@ nav ul li a:hover {
 
 @media screen and (max-width: 1400px) {
       .flex-container > div {
-            margin-top: 70px;
+            margin-top: 35px;
             margin-right: 100px;
+      }
+
+      .bg-2 {
+            min-height: 720px;
       }
 }
 
