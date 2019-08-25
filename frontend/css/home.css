@@ -176,6 +176,12 @@ nav ul li a:hover {
       overflow: hidden;
 }
 
+.bg-3 {
+      min-height: 800px;
+      overflow: hidden;
+}
+
+
 .register-btn {
       text-decoration: none;
       color: white;
@@ -213,6 +219,7 @@ nav ul li a:hover {
       margin-right: 200px;
       margin-top: 100px;
       text-align: center;
+      width: 1000px;
 }
 
 #audition {
@@ -318,7 +325,8 @@ nav ul li a:hover {
 
 @media screen and (max-width: 1400px) {
       .flex-container > div {
-            margin-top: 10px;
+            margin-top: 70px;
+            margin-right: 100px;
       }
 }
 
