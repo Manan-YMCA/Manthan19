@@ -195,7 +195,7 @@ nav ul li a:hover {
       overflow: hidden;
 }
 
-.about h1 {
+.flex-container h1 {
       font-size: 70px;
       overflow: hidden;
 }
@@ -208,10 +208,10 @@ nav ul li a:hover {
 
 .flex-container > div {
       background-color: white;
-      padding: 50px;
+      padding: 30px;
       margin-left: 600px;
       margin-right: 200px;
-      margin-top: 200px;
+      margin-top: 80px;
       text-align: center;
 }
 
@@ -284,8 +284,8 @@ nav ul li a:hover {
 
 .contributor {
       border-radius: 50%;
-      height: 250px;
-      width: 250px;
+      height: 220px;
+      width: 240px;
       padding-right: 20px;
 }
 
@@ -304,6 +304,7 @@ nav ul li a:hover {
 
 .wrapper-5 h2 {
       overflow: hidden;
+      font-size: 25px;
 }
 
 .dev {
@@ -322,7 +323,9 @@ nav ul li a:hover {
       .flex-container > div {
             margin-left: 20px;
             margin-right: 20px;
-            margin-top: 50px;
+            margin-top: 20px;
+            padding: 20px;
+            margin-bottom: 30px;
       }
 
       .contact-us {
