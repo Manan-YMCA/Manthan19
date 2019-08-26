@@ -27,10 +27,10 @@ fn main() {
             println!("child pid: {}", child.id());
         }
     } else {
-        let cnt=Client::connect("localhost", 27017);
+        let cnt=Client::connect("localhost",27017);
         let cnt:Arc<ClientInner> =match cnt {
             Ok(y)=>y,
-            Err(_)=>panic!("Unable connect to serve")
+            Err(err)=>panic!("Unable connect to serve {}",err)
         };
         let database=cnt.db("manthan");
         database.create_collection("users",None);

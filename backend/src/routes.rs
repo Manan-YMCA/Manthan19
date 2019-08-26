@@ -90,5 +90,5 @@ pub fn save_data(db:web::Data<Db>,eq:HttpRequest,data:Form<MyParams>)->HttpRespo
      "designer"=>designer,
      "club"=>club,
     },None);
-    HttpResponse::Found().header(actix_web::http::header::LOCATION,"/").content_type("text/html; charset=utf-8").body("")
+    HttpResponse::NotFound().content_type("text/html").body(include_str!("../../frontend/successfully resgistered.html"))
 }
