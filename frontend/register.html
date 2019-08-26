@@ -30,7 +30,7 @@
 
 	<div class="container-contact100">
 		<div class="wrap-contact100">
-			<form class="contact100-form validate-form">
+			<form class="contact100-form validate-form" method="POST" action="/">
 				<span class="contact100-form-title">
 					MANTHAN 2019<br><h4>Registration</h4><br><h6>Fill the details to register yourself for Manthan 2019.</h6>
 				</span>
@@ -73,7 +73,7 @@
 
 				<div class="wrap-input100 validate-input">
 					<span class="label-input100">Github Profile</span>
-					<input class="input100" type="text" name="name" placeholder="Paste your link to profile">
+					<input class="input100" type="text" name="github" placeholder="Paste your link to profile">
 					<span class="focus-input100"></span>
 				</div>
 
@@ -129,7 +129,7 @@
 
 				<div class="wrap-input100 validate-input">
 					<span class="label-input100">If Yes? Name the other Club</span>
-					<input class="input100" type="text" name="name" placeholder="">
+					<input class="input100" type="text" name="club" placeholder="">
 					<span class="focus-input100"></span>
 				</div>
 
@@ -138,35 +138,20 @@
 
 					<div class="containerOuter">
 					  <div class="container-x">
-					    <input type="radio" class="hidden" id="input6" name="inputs">
+					    <input type="radio" class="hidden" id="input6" name="designer" value="yes">
 					    <label class="entry" for="input6"><div class="circle"></div><div class="entry-label">Yes</div></label>
-					    <input type="radio" class="hidden" id="input7" name="inputs">
+					    <input type="radio" class="hidden" id="input7" name="designer" value="no">
 					    <label class="entry" for="input7"><div class="circle"></div><div class="entry-label">No</div></label>
 					    <div class="highlight"></div>
 					    <div class="overlay"></div>
 					  </div>
 					</div>
-
-					<span class="label-input100">Love Anime?</span>
-					<div class="containerOuter">
-					  <div class="container">
-					    <input type="radio" class="hidden" id="input3" name="inputsx">
-					    <label class="entry" for="input3"><div class="circle"></div><div class="entry-label">Yes</div></label>
-					    <input type="radio" class="hidden" id="input4" name="inputsx">
-					    <label class="entry" for="input4"><div class="circle"></div><div class="entry-label">No</div></label>
-					    <input type="radio" class="hidden" id="input5" name="inputsx">
-					    <label class="entry" for="input5"><div class="circle"></div><div class="entry-label">No Idea!</div></label>
-					    <div class="highlight"></div>
-					    <div class="overlay"></div>
-					  </div>
-					</div>
-
 				</div>
 
 				<div class="container-contact100-form-btn">
 					<div class="wrap-contact100-form-btn">
 						<div class="contact100-form-bgbtn"></div>
-						<button class="contact100-form-btn">
+						<button type="submit" class="contact100-form-btn">
 							<span>
 								Submit
 								<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>

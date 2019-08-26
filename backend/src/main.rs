@@ -1,43 +1,22 @@
-use std::io;
+#[macro_use]
+extern crate serde;
+#[macro_use(bson, doc)]
+extern crate mongodb;
+
+
 use std::sync::{Arc};
 use std::env;
 
-use actix_web::{middleware, web, App, HttpRequest, HttpResponse, HttpServer};
-use mongodb::{Client, ThreadedClient, ClientInner,db::{ThreadedDatabase,options}};
-use actix_web::http::Method;
+use std::process::Command;
+
+use actix_web::{middleware, web, App, HttpServer};
+use mongodb::{Client, ThreadedClient, ClientInner,db::{ThreadedDatabase}};
 use actix_files as fs;
+use mongodb::coll::Collection;
+use mongodb::db::DatabaseInner;
 
 mod routes;
 
-fn index(client: web::Data<Arc<ClientInner>>, req: HttpRequest) -> HttpResponse {
-    let db = client.db("movies");
-    let col=db.create_collection("comedies",None);
-    println!("{:?}",col);
-    HttpResponse::Ok().body(format!("Num of requests:"))
-}
-
-//fn main(){
-//    use std::process::Command;
-//    use std::env;
-//
-//    fn main() {
-//        let args: Vec<String> = env::args().collect();
-//        println!("{:?}",args);
-//        if args.len() == 2 {
-//            if &args[1] == "start" {
-//                let child = Command::new(&args[0])
-//                    .spawn().expect("Child process failed to start.");
-//                println!("child pid: {}", child.id());
-//                // child.forget() No Child Left Behind
-//            }
-//        } else {
-//            std::env::set_var("RUST_LOG", "actix_web=info");
-
-//        }
-//    }
-//}
-
-use std::process::Command;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -46,7 +25,6 @@ fn main() {
             let child = Command::new(&args[0])
                 .spawn().expect("Child process failed to start.");
             println!("child pid: {}", child.id());
-            // child.forget() No Child Left Behind
         }
     } else {
         let cnt=Client::connect("localhost", 27017);
@@ -54,16 +32,23 @@ fn main() {
             Ok(y)=>y,
             Err(_)=>panic!("Unable connect to serve")
         };
-        let db = web::Data::new(cnt.clone());
+        let database=cnt.db("manthan");
+        database.create_collection("users",None);
         HttpServer::new(move || {
+            let col=database.collection("users");
+            let mut opt=mongodb::coll::options::IndexOptions::new();
+            opt.unique=Some(true);
+            col.create_index(doc!{"email":1},Some(opt));
+            let db = routes::Db{col};
             App::new()
-                .register_data(db.clone())
+                .register_data(web::Data::new(db))
                 .wrap(middleware::Logger::default())
+                .route("/",web::post().to(routes::save_data))
                 .default_service(fs::Files::new("/", "./../frontend/")
                     .index_file("home.html")
-                    .default_handler(web::route().to(routes::notFound)))
+                    .default_handler(web::route().to(routes::not_found)))
         })
-            .bind("127.0.0.1:8080").unwrap()
-            .run();
+            .bind("0.0.0.0:8080").unwrap()
+            .run().unwrap();
     }
 }
