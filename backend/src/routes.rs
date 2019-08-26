@@ -43,7 +43,9 @@ pub struct MyParams {
     #[serde(default="default")]
     designer:String,
     #[serde(default="default")]
-    club:String
+    club:String,
+    #[serde(default="default")]
+    year:String,
 }
 
     fn default()->String{
@@ -52,7 +54,7 @@ pub struct MyParams {
 
 pub fn save_data(db:web::Data<Db>,eq:HttpRequest,data:Form<MyParams>)->HttpResponse{
     let d=data.into_inner();
-    let MyParams {first_name, last_name, roll_number, branch, email, phone, hacker_earth, code_chef, spoj, os_link, message, is_club, other,club,designer,github }=d;
+    let MyParams {first_name, last_name, roll_number, branch, email, phone, hacker_earth, code_chef, spoj, os_link, message, is_club, other,club,designer,github,year }=d;
 //    let sg = SGClient::new("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");
 //    let mut full_name=first_name.clone();
 //    full_name.push_str(" ");
@@ -89,6 +91,7 @@ pub fn save_data(db:web::Data<Db>,eq:HttpRequest,data:Form<MyParams>)->HttpRespo
      "github"=>github,
      "designer"=>designer,
      "club"=>club,
+     "year"=>year
     },None);
     HttpResponse::NotFound().content_type("text/html").body(include_str!("../../frontend/successfully resgistered.html"))
 }
