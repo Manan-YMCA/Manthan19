@@ -66,8 +66,8 @@
 				</div>
 
 				<div class="wrap-input100 validate-input">
-					<span class="label-input100">Phone no. <span class="star">*</span></span>
-					<input class="input100" type="text" name="phone" required>
+					<span class="label-input100">Phone number <span class="star">*</span></span>
+					<input class="input100" onkeyup="return limitlength(this, 10) type="number" pattern="pattern="[789][0-9]{9}" maxlength="10" name="phone" required>
 					<span class="focus-input100"></span>
 				</div>
 
@@ -111,7 +111,7 @@
 					<span class="label-input100">Year</span>
 
 					<div class="containerOuter">
-						<div class="container-x">
+						<div class="container-xy">
 							<input type="radio" class="hidden" id="input9" name="year" value="second" checked>
 							<label class="entry" for="input6"><div class="circle"></div><div class="entry-label">Second</div></label>
 							<div class="highlight"></div>
@@ -212,6 +212,16 @@
   gtag('js', new Date());
 
   gtag('config', 'UA-23581568-13');
+</script>
+
+<script type="text/javascript">
+ 
+function limitlength(obj, length){
+    var maxlength=length
+    if (obj.value.length>maxlength)
+        obj.value=obj.value.substring(0, maxlength)
+}
+ 
 </script>
 
 </body>

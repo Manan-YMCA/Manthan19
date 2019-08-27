@@ -631,6 +631,13 @@ textarea.input100 {
   width: 160px;
   height: 100px;
 }
+.container-xy {
+  position: relative;
+  margin: 20px;
+  overflow: hidden;
+  width: 160px;
+  height: 40px;
+}
 .container {
   position: relative;
   margin: 20px;
