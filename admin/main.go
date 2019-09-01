@@ -17,7 +17,7 @@ func handle(reader io.Writer) error {
 		"Android",
 		"Apty",
 		"Misc",
-		"Code string"}
+		"Code"}
 
 	header.WriteSlice(&headers, -1)
 	if errInSheet != nil {
@@ -29,7 +29,11 @@ func handle(reader io.Writer) error {
 	}
 	err := file.Write(reader)
 	if err != nil {
-		panic(err)
+		return  err
+	}
+	errInSave:=file.Save("./file.xlsx")
+	if err!=nil{
+		return  errInSave
 	}
 	return nil
 }
@@ -55,7 +59,7 @@ func saveMarks(w http.ResponseWriter, r *http.Request) {
 	c["web"] = web
 	c["android"] = android
 	c["misc"] = misc
-	c[code] = code
+	c["code"] = code
 	_, error := db.SaveMarks(c)
 	if error != nil {
 		w.Write([]byte("error"))
@@ -69,7 +73,7 @@ func serv(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/marks", serv)
-	http.HandleFunc("/", handlerForFile)
+	http.HandleFunc("/xlsxfile.xlsx", handlerForFile)
 	http.HandleFunc("/save", saveMarks)
 	log.Fatal(http.ListenAndServe(":8081", nil))
 
