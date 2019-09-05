@@ -26,24 +26,13 @@ pub struct MyParams {
     email:String,
     phone:String,
     #[serde(default="default")]
-    hacker_earth:String,
-    #[serde(default="default")]
-    code_chef:String,
-    #[serde(default="default")]
-    spoj:String,
-    #[serde(default="default")]
     os_link:String,
     #[serde(default="default")]
     message:String,
-    is_club:String,
     #[serde(default="default")]
     other:String,
     #[serde(default="default")]
-    github:String,
-    #[serde(default="default")]
     designer:String,
-    #[serde(default="default")]
-    club:String,
     #[serde(default="default")]
     year:String,
 }
@@ -54,7 +43,7 @@ pub struct MyParams {
 
 pub fn save_data(db:web::Data<Db>,eq:HttpRequest,data:Form<MyParams>)->HttpResponse{
     let d=data.into_inner();
-    let MyParams {first_name, last_name, roll_number, branch, email, phone, hacker_earth, code_chef, spoj, os_link, message, is_club, other,club,designer,github,year }=d;
+    let MyParams {first_name, last_name, roll_number, branch, email, phone, os_link, message, other, designer, year }=d;
 //    let sg = SGClient::new("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");
 //    let mut full_name=first_name.clone();
 //    full_name.push_str(" ");
@@ -81,16 +70,10 @@ pub fn save_data(db:web::Data<Db>,eq:HttpRequest,data:Form<MyParams>)->HttpRespo
     "branch"=>branch,
     "email"=>email,
     "phone"=>phone,
-    "hacker_earth"=>hacker_earth,
-     "code_chef"=>code_chef,
-     "spoj"=>spoj,
      "os_link"=>os_link,
      "message"=>message,
-     "is_club"=>is_club,
      "other"=>other,
-     "github"=>github,
      "designer"=>designer,
-     "club"=>club,
      "year"=>year
     },None);
     HttpResponse::NotFound().content_type("text/html").body(include_str!("../../frontend/successfully resgistered.html"))
