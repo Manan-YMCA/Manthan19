@@ -54,8 +54,8 @@ func init() {
 	collection=client.Database("manthan").Collection("users")
 }
 
-func GetUser()[]User{
-	cursor,errInFind:=collection.Find(context.Background(),bson.D{})
+func GetUser(filter string)[]User{
+	cursor,errInFind:=collection.Find(context.Background(),bson.M{"year":filter})
 	if errInFind!=nil {
 		panic(errInFind.Error())
 	}

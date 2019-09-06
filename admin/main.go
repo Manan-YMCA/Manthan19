@@ -8,9 +8,9 @@ import (
 	"net/http"
 )
 
-func handle(reader io.Writer) error {
+func handle(reader io.Writer,filter string) error {
 	file := xlsx.NewFile()
-	users := db.GetUser()
+	users := db.GetUser(filter)
 	sheet, errInSheet := file.AddSheet("Manthan")
 	header := sheet.AddRow()
 	headers := []string{"ID", "First Name", "Last Name", "Phone", "Email", "Year", "Branch", "Other", "Is club", "Club", "Github", "Spoj", "Code Chef", "Hacker Earth", "Project", "Designer", "Roll number", "Other", "Web",
@@ -42,7 +42,7 @@ func handlerForFile(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(200)
 	w.Header().Add("content-type", "application/vnd.ms-excel")
 	w.Header().Add("Content-Disposition", "attachment; filename=\"first_year.xlxs\"")
-	handle(w)
+	handle(w,"first")
 }
 
 func saveMarks(w http.ResponseWriter, r *http.Request) {
