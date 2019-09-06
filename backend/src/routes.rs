@@ -21,6 +21,7 @@ pub struct Db{
 pub struct MyParams {
     first_name:String,
     last_name:String,
+    #[serde(default="default")]
     roll_number:String,
     branch:String,
     email:String,
@@ -35,6 +36,7 @@ pub struct MyParams {
     designer:String,
     #[serde(default="default")]
     year:String,
+    anime:String,
 }
 
     fn default()->String{
@@ -43,7 +45,7 @@ pub struct MyParams {
 
 pub fn save_data(db:web::Data<Db>,eq:HttpRequest,data:Form<MyParams>)->HttpResponse{
     let d=data.into_inner();
-    let MyParams {first_name, last_name, roll_number, branch, email, phone, os_link, message, other, designer, year }=d;
+    let MyParams {first_name, last_name, roll_number, branch, email, phone, os_link, message, other, designer, year,anime }=d;
 //    let sg = SGClient::new("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");
 //    let mut full_name=first_name.clone();
 //    full_name.push_str(" ");
@@ -74,7 +76,8 @@ pub fn save_data(db:web::Data<Db>,eq:HttpRequest,data:Form<MyParams>)->HttpRespo
      "message"=>message,
      "other"=>other,
      "designer"=>designer,
-     "year"=>year
+     "year"=>year,
+     "anime"=>anime,
     },None);
     HttpResponse::NotFound().content_type("text/html").body(include_str!("../../frontend/successfully resgistered.html"))
 }
