@@ -80,7 +80,7 @@ func serv(w http.ResponseWriter, r *http.Request) {
 func main() {
 	http.HandleFunc("/marks", serv)
 	http.HandleFunc("/first.xlsx", handlerForFile)
-	http.HandleFunc("/second.xlsx", handlerForFile)
+	http.HandleFunc("/second.xlsx", handlerForFileSecond)
 	http.HandleFunc("/save", saveMarks)
 	log.Fatal(http.ListenAndServe(":8081", nil))
 
