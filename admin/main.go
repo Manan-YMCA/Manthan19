@@ -44,6 +44,12 @@ func handlerForFile(w http.ResponseWriter, r *http.Request) {
 	w.Header().Add("Content-Disposition", "attachment; filename=\"first_year.xlxs\"")
 	handle(w,"first")
 }
+func handlerForFileSecond(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(200)
+	w.Header().Add("content-type", "application/vnd.ms-excel")
+	w.Header().Add("Content-Disposition", "attachment; filename=\"first_year.xlxs\"")
+	handle(w,"second")
+}
 
 func saveMarks(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
@@ -73,7 +79,8 @@ func serv(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/marks", serv)
-	http.HandleFunc("/xlsxfile.xlsx", handlerForFile)
+	http.HandleFunc("/first.xlsx", handlerForFile)
+	http.HandleFunc("/second.xlsx", handlerForFile)
 	http.HandleFunc("/save", saveMarks)
 	log.Fatal(http.ListenAndServe(":8081", nil))
 
